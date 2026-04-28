@@ -4,7 +4,7 @@ import CategoryItemList from "./CategoryItemList";
 import { useRazorpay } from "react-razorpay";
 import { useDispatch } from "react-redux";
 import { clearCart } from "../utils/cartSlice";
-import { set } from "mongoose";
+
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.items);
   const totalAmount = cartItems.reduce(
