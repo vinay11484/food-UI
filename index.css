@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+
+.body{
+  margin: 10px;
+}
+.header{
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+
+.logo-image{
+  padding-top: 13px;
+  width: 100px;
+}
+
+.header-items{
+  padding: 0px 20px;
+}
+
+.header-items >ul{
+  display: flex;
+  list-style: none;
+}
+
+.header-items>ul>li{
+  font-size: 25px;
+  padding: 10px;
+  margin: 10px;
+}
+
+
+
+
+.res-container{
+  width: 85%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 10px;
+}
+.res-cart{ 
+  /* margin-bottom: 10px; */
+  padding: 5px;
+  width: 300px;
+  height: 360px;
+  border-radius: 3vw;
+  background-color: white;
+  border-bottom: 1px solid rgb(195, 193, 193);
+}
+.res-cart:hover{
+border: white solid 4px;
+cursor: pointer;
+}
+
+.food-image{
+  height: 60%;
+  width: 100%;
+}
+.food-dis>div{
+  font-size: medium;
+  /* padding-bottom: 5px; */
+  /* padding-top: 5px; */
+}
+.search-button-container{
+  padding-bottom: 12px;
+}
+.filter-btn{
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+.search-btn{
+  margin-left: 15px;
+}
+.shimmer-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+.shimmer-cart{
+  margin: 5px;
+  width: 200px;
+  height: 300px;
+  border: 1px solid;
+  background-color:azure;
+}
+.login{
+  border:none;
+  background-color:white;
+  font-size:25px;
+  color :#28282B;
+  cursor: pointer;
+ }
+
+ .search-button-container{
+  display:flex;
+ }
+
+ .header-link{
+  text-decoration: none;
+  color: #28282B;
+ }
+ .login-container{
+  width: 85px;
+ }
+
+ .header-link:hover{
+  color:  orangered;
+ }
+ .login:hover{
+  color:  orangered;
+ }
+
+ .svg{
+  padding-right: 3px;
+ }
+ .rating{
+  font-weight: bold;
+  font-size: medium;
+  position:relative;
+  bottom: 4px;
+  padding-left: 2px;
+
+ }
+ .rating1{
+  font-weight: bold;
+  font-size: larger;
+  position:relative;
+  bottom: 3px;
+  padding-left: 10px;
+ }
+ .dot{
+  font-weight: bolder;
+  font-size:xx-large;
+  color: #727275;
+  position:relative;
+  bottom: 6px;
+  padding-left: 10px;
+ }
+ .menu-box{
+  padding-top: 10px;
+  padding-left: 10px;
+  width: 800px;
+  height:auto;
+  border-left: 15px solid #f3f7f6;
+  border-bottom:10px solid #e5e9e9 ;
+  border-right: 15px solid #f3f7f6;
+  border-radius: 20px;
+  box-shadow: 5px 5px 3px 2px #888888;
+ }
+ .outer-menu{
+  display: flex;
+   justify-content: center
+ }
+ .time{
+  padding-bottom: 10px;
+  padding-top: 10px;
+ }
+ .label{
+  position: absolute;
+  background-color: orangered;
+  color: white;
+  font-size:medium;
+  padding: 2px;
+  border-radius: 5px;
+ }
+ 
