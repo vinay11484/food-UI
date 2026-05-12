@@ -4,8 +4,17 @@ import CategoryItemList from "./CategoryItemList";
 import { useRazorpay } from "react-razorpay";
 import { useDispatch } from "react-redux";
 import { clearCart } from "../utils/cartSlice";
+import { useAuth } from "./AuthContext";
+import SignInPan from "./SignInPan";
+import { isAuthPKCECodeVerifierMissingError } from "@supabase/supabase-js";
+import { isPending } from "@reduxjs/toolkit";
 
 const Cart = () => {
+  let orderData;
+  const [state, setState] = React.useState({ isPaneOpen: true });
+  const { token } = useAuth();
+  const { userId } = useAuth();
+
   const cartItems = useSelector((state) => state.cart.items);
   const totalAmount = cartItems.reduce(
     (sum, item) =>
@@ -15,7 +24,6 @@ const Cart = () => {
   console.log("Cart rendered with items:", cartItems);
   const dispatch = useDispatch();
   const { Razorpay } = useRazorpay();
-  const [orderData, setOrderData] = React.useState(null);
   const handlePayment = async () => {
     try {
       const response = await fetch("http://localhost:3000/api/create-order", {
@@ -23,9 +31,9 @@ const Cart = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ amount: 500 }),
+        body: JSON.stringify({ amount: totalAmount, userId: userId }),
       });
-      setOrderData(await response.json());
+      orderData = await response.json();
       console.log("Order data received:", orderData);
     } catch (error) {
       console.error("Error creating order:", error);
@@ -65,6 +73,9 @@ const Cart = () => {
     rzp1.open();
   };
 
+  if (!token) {
+    return <SignInPan panState={state.isPaneOpen} SetpanState={setState} />;
+  }
   return (
     <div className="w-3/6 m-auto  text-center shadow-lg p-4 rounded-lg">
       <h1 className="pb-5">Cart</h1>
@@ -84,7 +95,7 @@ const Cart = () => {
       )}
       <button
         className="bg-green-400 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition duration-300 mt-4 cursor-pointer"
-        onClick={() => handlePayment()}
+        onClick={handlePayment}
       >
         pay
       </button>

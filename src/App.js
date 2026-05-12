@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Error from "./components/Error";
@@ -14,6 +14,8 @@ import { TimerContextProvider } from "./utils/TimerContext";
 import { Provider } from "react-redux";
 import store from "./utils/store";
 import Cart from "./components/Cart";
+import { useState } from "react";
+import { AuthProvider } from "./components/AuthContext";
 // const heading = React.createElement("h1", { id: "heading" }, "hello react");
 // const heading1 = <h1>hello vinay</h1>;
 // const HeadingComponent2 = () => (
@@ -38,24 +40,16 @@ import Cart from "./components/Cart";
 // root.render(<HeadingComponent></HeadingComponent>);
 
 const Layout = () => {
-  // const [timer, setTimer] = useState(new Date().toLocaleTimeString());
-  // useEffect(() => {
-  //   const timerId = setInterval(() => {
-  //     setTimer(new Date().toLocaleTimeString());
-  //   }, 1000);
-
-  //   return () => {
-  //     clearInterval(timerId);
-  //   };
-  // }, []);
   return (
     <Provider store={store}>
-      <div>
-        <TimerContextProvider>
+      <AuthProvider>
+        <div>
+          {/* <TimerContextProvider> */}
           <Header></Header>
           <Outlet />
-        </TimerContextProvider>
-      </div>
+          {/* </TimerContextProvider> */}
+        </div>
+      </AuthProvider>
     </Provider>
   );
 };

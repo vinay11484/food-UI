@@ -34,6 +34,7 @@
     "react-redux": "^9.2.0",
     "react-router": "^7.13.0",
     "react-router-dom": "^6.30.3",
+    "react-sliding-pane": "^7.3.0",
     "tailwindcss": "^4.2.2"
   },
   "name": "go4food",
