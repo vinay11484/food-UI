@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useAuth } from "./AuthContext";
+import { LOG_IN_API } from "../utils/constant";
 
 const LogInForm = (props) => {
   const [userName, setUserName] = useState("");
@@ -9,7 +10,7 @@ const LogInForm = (props) => {
     e.preventDefault();
     const phone = e.target.phone.value;
     const password = e.target.password.value;
-    fetch("http://localhost:3000/api/login-user", {
+    fetch(LOG_IN_API, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,14 +1,16 @@
 import React, { captureOwnerStack } from "react";
 import { useState } from "react";
+import SignInPan from "./SignInPan";
+import { SIGN_UP_API } from "../utils/constant";
 
-const SignInForm = () => {
+const SignUpForm = () => {
   const [registerMessage, setRegisterMessage] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
     const username = e.target.username.value;
     const phone = e.target.phone.value;
     const password = e.target.password.value;
-    fetch("http://localhost:3000/api/register-user", {
+    fetch(SIGN_UP_API, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -77,7 +79,7 @@ const SignInForm = () => {
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
             type="submit"
           >
-            Sign In
+            Sign Up
           </button>
         </div>
         {registerMessage && (
@@ -90,4 +92,4 @@ const SignInForm = () => {
   );
 };
 
-export default SignInForm;
+export default SignUpForm;

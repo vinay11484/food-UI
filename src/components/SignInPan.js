@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import LogInForm from "./LogInForm";
-import SignInForm from "./SignUpForm";
+import SignUpForm from "./SignUpForm";
 import SlidingPane from "react-sliding-pane";
 const SignInPan = (props) => {
   const [buttonText, setButtonText] = useState("Login to your account");
@@ -31,7 +31,7 @@ const SignInPan = (props) => {
           or {buttonText}
         </button>
         {buttonText === "Login to your account" ? (
-          <SignInForm />
+          <SignUpForm />
         ) : (
           <LogInForm SetpanState={props.SetpanState} />
         )}

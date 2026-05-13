@@ -6,7 +6,8 @@ import { useDispatch } from "react-redux";
 import { clearCart } from "../utils/cartSlice";
 import { useAuth } from "./AuthContext";
 import SignInPan from "./SignInPan";
-
+import { CREATE_ORDER_API } from "../utils/constant";
+import { VERIFY_PAYMENT_API } from "../utils/constant";
 const Cart = () => {
   let orderData;
   const [state, setState] = React.useState({ isPaneOpen: true });
@@ -24,7 +25,7 @@ const Cart = () => {
   const { Razorpay } = useRazorpay();
   const handlePayment = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/create-order", {
+      const response = await fetch(CREATE_ORDER_API, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -53,7 +54,7 @@ const Cart = () => {
           razorpay_payment_id: response.razorpay_payment_id,
           razorpay_signature: response.razorpay_signature,
         };
-        fetch("http://localhost:3000/api/verify-payment", {
+        fetch(VERIFY_PAYMENT_API, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

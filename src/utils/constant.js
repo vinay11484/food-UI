@@ -6,3 +6,11 @@ export const MENU_API =
   "https://swiggy-api-hv3o.onrender.com/restaurant/menu/restaurantId=";
 export const CATALOG_API =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/";
+export const LOG_IN_API =
+  "https://backend-food-ui-1.onrender.com/api/login-user";
+export const SIGN_UP_API =
+  "https://backend-food-ui-1.onrender.com/api/register-user";
+export const CREATE_ORDER_API =
+  "https://backend-food-ui-1.onrender.com/api/create-order";
+export const VERIFY_PAYMENT_API =
+  "https://backend-food-ui-1.onrender.com/api/verify-payment";
