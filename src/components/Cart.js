@@ -6,8 +6,6 @@ import { useDispatch } from "react-redux";
 import { clearCart } from "../utils/cartSlice";
 import { useAuth } from "./AuthContext";
 import SignInPan from "./SignInPan";
-import { isAuthPKCECodeVerifierMissingError } from "@supabase/supabase-js";
-import { isPending } from "@reduxjs/toolkit";
 
 const Cart = () => {
   let orderData;
